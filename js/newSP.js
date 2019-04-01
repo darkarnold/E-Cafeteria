@@ -15,5 +15,3 @@ function sp (spUserName, spName, spPassword, spEmail){
   providerArray.push([this.ID, this.userName, [this]]);
   //pushes the new contact contained within its own mini array to the address book in the format [this.ID,this.firstName,[this]]
 };
-
-j
