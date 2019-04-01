@@ -7,10 +7,16 @@ const container = document.getElementById("container");
 
 // Event listeners to switch panels when clicked
 
-signUpButton.addEventListener("click",() =>{
-  container.classList.add("panel-active")
+$("signUpButton").click(function() {
+  container.classList.add("panel-active");
+    container.classList.remove("panel-active");
+});
+
+/*signUpButton.addEventListener("click",() =>{
+
 });
 
 signUpButton.addEventListener("click",() =>{
-  container.classList.remove("panel-active")
+
 });
+*/
