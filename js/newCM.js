@@ -35,9 +35,12 @@ $(document).ready(function(){
       user_exists = false;
       pass_valid = false;
       for(j=0; j<customerArray.length ; j++){
-        if(toString(customerArray[j][2][0].userName) === toString(user)){
-          user_exists = true
-          if (toString(customerArray[j][2][0].cmPassword) === toString(pass)) {
+        var customer_name = customerArray[j][2][0].userName
+        var customer_pass = customerArray[j][2][0].cmPassword
+
+        if(customer_name === user){
+          user_exists = true;
+          if (customer_pass === pass) {
             alert("User exists and password is correct")
             pass_valid = true
           };
@@ -50,9 +53,13 @@ $(document).ready(function(){
       if (pass_valid === false ){
         alert("Your password is wrong.")
       };
+      alert(pass_valid)
+      alert( user_exists)
     };
 
     var user_name = $("#users_name").val();
+    alert(user_name);
+    alert(customerArray[0][2][0].userName)
     var user_password = $("#users_password").val();
 
     sign_in(user_name, user_password);
