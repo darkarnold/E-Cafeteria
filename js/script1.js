@@ -6,22 +6,70 @@ $(document).ready(function(event){
   //get the id of the container
   const container = document.getElementById("container");
 
-  // Event listeners to switch panels when clicked
-  $("signUpButton").click(function(event) {
-    // Prevent the page from reloading
-    event.preventDefault();
-    container.classList.add("panel-active");
-  });
+  $("#Signup").click(function(){
+  $(".overlay-right").animate({left :'-100%'});
+  $(".sign-up-container").show();
 
-  $("loginButton").click()
+    });
 
-  /*signUpButton.addEventListener("click",() =>{
+/*
+    $("#Login").click(function(){
+      $("#left").slideToggleWidth();
+    });
 
-  });
-
-  signUpButton.addEventListener("click",() =>{
-
-  });
-  */
+  jQuery.fn.extend({
+    slideRight: function() {
+      return this.each(function() {
+        jQuery(this).animate({width: 'show'});
+      });
+    },
+    slideLeft: function() {
+      return this.each(function() {
+        jQuery(this).animate({width: 'hide'});
+      });
+    },
+    slideToggleWidth: function() {
+      return this.each(function() {
+        var el = jQuery(this);
+        if (el.css('display') == 'none') {
+          el.slideRight();
+        } else {
+          el.slideLeft();
+        }
+      });
+    }
+  });*/
 
 });
+
+
+
+/*
+jQuery('.toggleWidth').click(function () {
+	jQuery('#homeTown').slideToggleWidth();
+});
+
+jQuery.fn.extend({
+  slideRight: function() {
+    return this.each(function() {
+      jQuery(this).animate({width: 'show'});
+    });
+  },
+  slideLeft: function() {
+    return this.each(function() {
+      jQuery(this).animate({width: 'hide'});
+    });
+  },
+  slideToggleWidth: function() {
+    return this.each(function() {
+      var el = jQuery(this);
+      if (el.css('display') == 'none') {
+        el.slideRight();
+      } else {
+        el.slideLeft();
+      }
+    });
+  }
+});
+
+*/
