@@ -41,10 +41,10 @@ $(document).ready(function(){
           $(`#`+ menuArray[p][3][0].itemName +``).remove();
           $("#menulist").append(`
             <div class="col-md-5 offset-md-1" id="`+ menuArray[p][3][0].itemName +`">
-              <div class="content">
-                <h6 class="header">`+ menuArray[p][3][0].itemName +`</h6>
-                <p class="description">`+ menuArray[p][3][0].itemDescrp +`</p>
-                <p class="price">`+ menuArray[p][3][0].itemPrice +`</p>
+              <div class="content btn btn-light" >
+                <h6 class="header">`+ menuArray[p][3][0].itemName + ` (`+ menuArray[p][3][0].itemStock +` left)</h6>
+                <p class="description all_items">`+ menuArray[p][3][0].itemDescrp +`</p>
+                <p class="price">`+ menuArray[p][3][0].itemPrice +` UGX</p>
               </div>
             </div>
             `);
@@ -65,10 +65,10 @@ $(document).ready(function(){
           $(`#`+ snack_Array[p][3][0].itemName +``).remove();
           $("#menulist").append(`
             <div class="col-md-5 offset-md-1" id="`+ snack_Array[p][3][0].itemName +`">
-              <div class="content">
-                <h6 class="header">`+ snack_Array[p][3][0].itemName +`</h6>
-                <p class="description">`+ snack_Array[p][3][0].itemDescrp +`</p>
-                <p class="price">`+ snack_Array[p][3][0].itemPrice +`</p>
+              <div class="content btn btn-light" >
+               <h6 class="header">`+ snack_Array[p][3][0].itemName + ` (`+ snack_Array[p][3][0].itemStock +` left)</h6>
+                <p class="description all_items">`+ snack_Array[p][3][0].itemDescrp +`</p>
+                <p class="price">`+ snack_Array[p][3][0].itemPrice +` UGX</p>
               </div>
             </div>
             `);
@@ -89,10 +89,10 @@ $(document).ready(function(){
           $(`#`+ lunch_Array[p][3][0].itemName +``).remove();
           $("#menulist").append(`
             <div class="col-md-5 offset-md-1" id="`+ lunch_Array[p][3][0].itemName +`">
-              <div class="content">
-                <h6 class="header">`+ lunch_Array[p][3][0].itemName +`</h6>
-                <p class="description">`+ lunch_Array[p][3][0].itemDescrp +`</p>
-                <p class="price">`+ lunch_Array[p][3][0].itemPrice +`</p>
+              <div class="content btn btn-light" >
+               <h6 class="header">`+ lunch_Array[p][3][0].itemName + ` (`+ lunch_Array[p][3][0].itemStock +` left)</h6>
+                <p class="description all_items">`+ lunch_Array[p][3][0].itemDescrp +`</p>
+                <p class="price">`+ lunch_Array[p][3][0].itemPrice +` UGX</p>
               </div>
             </div>
             `);
@@ -112,11 +112,12 @@ $(document).ready(function(){
         for(p=0; p<drink_Array.length;p++){
           $(`#`+ drink_Array[p][3][0].itemName +``).remove();
           $("#menulist").append(`
+
             <div class="col-md-5 offset-md-1" id="`+ drink_Array[p][3][0].itemName +`">
-              <div class="content">
-                <h6 class="header">`+ drink_Array[p][3][0].itemName +`</h6>
-                <p class="description">`+ drink_Array[p][3][0].itemDescrp +`</p>
-                <p class="price">`+ drink_Array[p][3][0].itemPrice +`</p>
+              <div class="content btn btn-light" >
+               <h6 class="header">`+ drink_Array[p][3][0].itemName + ` (`+ drink_Array[p][3][0].itemStock +` left)</h6>
+                <p class="description all_items">`+ drink_Array[p][3][0].itemDescrp +`</p>
+                <p class="price">`+ drink_Array[p][3][0].itemPrice +` UGX</p>
               </div>
             </div>
             `);
@@ -299,7 +300,7 @@ $(document).ready(function(){
             if(discard===item_name){
               snack_Array.splice(x,1);
             };};
-            
+
     $("#all_display").click();
     $("#form38").val("");
 
