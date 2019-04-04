@@ -54,7 +54,7 @@
         <div class="modal-content">
           <div class="modal-header text-center">
             <h4 class="modal-title w-100 font-weight-bold">Update your menu</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="update_closer">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -80,6 +80,45 @@
           </div>
           <div class="modal-footer d-flex justify-content-center" id="modal_end">
             <button class="btn btn-unique" id="meal_save">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <section class="modalform" id="modalform_editor">
+      <div class="modal fade" id="modalform_edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold" id="editor_head">Edit an item</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="editor_close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-3">
+            <div class="md-form mb-5">
+              <input type="text" id="form50" class="form-control validate" placeholder="name of meal">
+            </div>
+
+            <div class="md-form mb-5">
+              <input type="email" id="form51" class="form-control validate" placeholder="price">
+            </div>
+
+            <div class="md-form mb-5">
+              <input type="text" id="form52" class="form-control validate" placeholder="Stock available (input a number)">
+            </div>
+
+            <div class="md-form">
+              <i class="fas fa-pencil prefix grey-text"></i>
+              <label data-error="wrong" data-success="right" for="form8">Food description</label>
+              <textarea type="text" id="form53" class="md-textarea form-control" rows="4"></textarea>
+            </div>
+
+          </div>
+          <div class="modal-footer d-flex justify-content-center" id="modal_edit_end">
+            <button class="btn btn-unique" id="edit_save">Save this edit</button>
           </div>
         </div>
       </div>

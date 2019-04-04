@@ -13,6 +13,10 @@ $(document).ready(function(){
   var lunch_Array =[];
   var drink_Array =[];
 
+  function item_edit(name){
+
+  };
+
   //MENU ITEM CONSTRUCTOR
 
     function menu_add (name, price, stock, descrp, type, spID){
@@ -40,14 +44,39 @@ $(document).ready(function(){
         for(p=0; p<menuArray.length; p++){
           $(`#`+ menuArray[p][3][0].itemName +``).remove();
           $("#menulist").append(`
-            <div class="col-md-5 offset-md-1" id="`+ menuArray[p][3][0].itemName +`">
-              <div class="content btn btn-light" >
-                <h6 class="header">`+ menuArray[p][3][0].itemName + ` (`+ menuArray[p][3][0].itemStock +` left)</h6>
-                <p class="description all_items">`+ menuArray[p][3][0].itemDescrp +`</p>
-                <p class="price">`+ menuArray[p][3][0].itemPrice +` UGX</p>
+            <a href="#" class="item_random" data-toggle="modal" data-target="#modalform_edit" id = "`+ menuArray[p][3][0].itemName +`">
+              <div class="col-md-5 offset-md-1 item">
+                <div class="content btn btn-light" >
+                  <h6 class="header">`+ menuArray[p][3][0].itemName + ` (`+ menuArray[p][3][0].itemStock +` left)</h6>
+                  <p class="description all_items">`+ menuArray[p][3][0].itemDescrp +`</p>
+                  <p class="price">`+ menuArray[p][3][0].itemPrice +` UGX</p>
+                </div>
               </div>
-            </div>
+            </a>
             `);
+
+            $("#"+ menuArray[p][3][0].itemName +"").click(function(){
+              $("#editor_head").html( this.id);
+
+              var temp = this.id
+
+              for(x=0; x<menuArray.length; x++){
+                var item_name = menuArray[x][3][0].itemName;
+                if(temp === item_name){
+                  function replacer(a,b,c,d){
+                    $("#form50").val(a);
+                    $("#form51").val(b);
+                    $("#form52").val(c);
+                    $("#form53").val(d);
+                  }
+                  replacer(menuArray[x][3][0].itemName,menuArray[x][3][0].itemPrice,menuArray[x][3][0].itemStock,menuArray[x][3][0].itemDescrp);
+
+
+                };};
+
+
+             //$("#form38").val(``+ menuArray[p][3][0].itemName+``);
+            });
         };
       };
 
@@ -64,7 +93,7 @@ $(document).ready(function(){
         for(p=0; p<snack_Array.length;p++){
           $(`#`+ snack_Array[p][3][0].itemName +``).remove();
           $("#menulist").append(`
-            <div class="col-md-5 offset-md-1" id="`+ snack_Array[p][3][0].itemName +`">
+            <div class="col-md-5 offset-md-1 item" id="`+ snack_Array[p][3][0].itemName +`">
               <div class="content btn btn-light" >
                <h6 class="header">`+ snack_Array[p][3][0].itemName + ` (`+ snack_Array[p][3][0].itemStock +` left)</h6>
                 <p class="description all_items">`+ snack_Array[p][3][0].itemDescrp +`</p>
@@ -88,13 +117,16 @@ $(document).ready(function(){
         for(p=0; p<lunch_Array.length;p++){
           $(`#`+ lunch_Array[p][3][0].itemName +``).remove();
           $("#menulist").append(`
-            <div class="col-md-5 offset-md-1" id="`+ lunch_Array[p][3][0].itemName +`">
-              <div class="content btn btn-light" >
-               <h6 class="header">`+ lunch_Array[p][3][0].itemName + ` (`+ lunch_Array[p][3][0].itemStock +` left)</h6>
-                <p class="description all_items">`+ lunch_Array[p][3][0].itemDescrp +`</p>
-                <p class="price">`+ lunch_Array[p][3][0].itemPrice +` UGX</p>
+
+            <a href="#" class="item">
+              <div class="col-md-5 offset-md-1" id="`+ lunch_Array[p][3][0].itemName +`">
+                <div class="content btn btn-light" >
+                 <h6 class="header">`+ lunch_Array[p][3][0].itemName + ` (`+ lunch_Array[p][3][0].itemStock +` left)</h6>
+                  <p class="description all_items">`+ lunch_Array[p][3][0].itemDescrp +`</p>
+                  <p class="price">`+ lunch_Array[p][3][0].itemPrice +` UGX</p>
+                </div>
               </div>
-            </div>
+            </a>
             `);
         };
       };
@@ -113,7 +145,7 @@ $(document).ready(function(){
           $(`#`+ drink_Array[p][3][0].itemName +``).remove();
           $("#menulist").append(`
 
-            <div class="col-md-5 offset-md-1" id="`+ drink_Array[p][3][0].itemName +`">
+            <div class="col-md-5 offset-md-1 item" id="`+ drink_Array[p][3][0].itemName +`">
               <div class="content btn btn-light" >
                <h6 class="header">`+ drink_Array[p][3][0].itemName + ` (`+ drink_Array[p][3][0].itemStock +` left)</h6>
                 <p class="description all_items">`+ drink_Array[p][3][0].itemDescrp +`</p>
@@ -121,8 +153,10 @@ $(document).ready(function(){
               </div>
             </div>
             `);
+
         };
       };
+      //THIS IS THE PROBLEM!
 
   };
 
@@ -138,6 +172,12 @@ $(document).ready(function(){
     $("#form35").val("");
     $("#form8").val("");
   };
+  function saveButtonReset(){
+    $("#meal_save").remove();
+    $("#snack_item").remove();
+    $("#lunch_item").remove();
+    $("#drinks_item").remove();
+ };
 
 
   function toALL (){
@@ -152,10 +192,7 @@ $(document).ready(function(){
   };
 
   $('#snack_adder').click(function(){
-   $("#meal_save").remove();
-   $("#snack_item").remove();
-   $("#lunch_item").remove();
-   $("#drinks_item").remove();
+   saveButtonReset()
 
    $("#modal_end").append(`<button class="btn btn-unique" id="snack_item">Save</button>`);
     $('#snack_item').click(function(){
@@ -169,14 +206,12 @@ $(document).ready(function(){
       toALL();
       menu_gen("all");
       formReset()
+      $("#update_closer").click();
     });
   });
 
   $('#lunch_adder').click(function(){
-    $("#meal_save").remove();
-    $("#snack_item").remove();
-    $("#lunch_item").remove();
-    $("#drinks_item").remove();
+    saveButtonReset()
 
    $("#modal_end").append(`<button class="btn btn-unique" id="lunch_item">Save</button>`);
     $('#lunch_item').click(function(){
@@ -190,14 +225,12 @@ $(document).ready(function(){
       toALL();
       menu_gen("all");
       formReset()
+      $("#update_closer").click();
     });
   });
 
   $('#drinks_adder').click(function(){
-    $("#meal_save").remove();
-    $("#snack_item").remove();
-    $("#lunch_item").remove();
-    $("#drinks_item").remove();
+    saveButtonReset()
 
    $("#modal_end").append(`<button class="btn btn-unique" id="drinks_item">Save</button>`);
     $('#drinks_item').click(function(){
@@ -211,6 +244,7 @@ $(document).ready(function(){
       toALL();
       menu_gen("all");
       formReset()
+      $("#update_closer").click();
     });
   });
 
@@ -303,6 +337,60 @@ $(document).ready(function(){
 
     $("#all_display").click();
     $("#form38").val("");
+
+  });
+
+  $("#edit_save").click(function(){
+
+    var item_to_edit = $("#editor_head").html();
+
+    var edit_name = $("#form50").val();
+    var edit_price = $("#form51").val();
+    var edit_stock = $("#form52").val();
+    var edit_descrp = $("#form53").val();
+
+
+    function edit_click(a,b,c,d,e){
+      a.itemName =b;
+      a.itemPrice =c;
+      a.itemStock = d;
+      a.itemDescrp =e;
+    };
+
+
+    for(x=0; x<menuArray.length; x++){
+      var item_1 = menuArray[x][3][0];
+      var item_1Name = item_1.itemName
+      if(item_to_edit===item_1Name){
+       edit_click(item_1, edit_name , edit_price, edit_stock, edit_descrp);
+      };};
+
+    for(x=0; x<drink_Array.length; x++){
+        var item_1 = drink_Array[x][3][0];
+        var item_1Name = item_1.itemName;
+        if(item_to_edit===item_1Name){
+          edit_click(item_1, edit_name , edit_price, edit_stock, edit_descrp);
+        };};
+
+    for(x=0; x<lunch_Array.length; x++){
+          var item_1 = lunch_Array[x][3][0];
+          var item_1Name = item_1.itemName;
+          if(item_to_edit===item_1Name){
+            edit_click(item_1, edit_name , edit_price, edit_stock, edit_descrp);
+          };};
+
+    for(x=0; x<snack_Array.length; x++){
+            var item_1 = snack_Array[x][3][0];
+            var item_1Name = item_1.itemName;
+            if(item_to_edit===item_1Name){
+              edit_click(item_1, edit_name , edit_price, edit_stock, edit_descrp);
+            };};
+
+
+    $("#all_display").click();
+
+    $("#editor_close").click();
+
 
   });
 
