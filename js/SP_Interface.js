@@ -274,5 +274,36 @@ $(document).ready(function(){
     menu_gen("Drinks");
   });
 
+  $("#save_del").click(function(){
+    var discard = $("#form38").val();
+    for(x=0; x<menuArray.length; x++){
+      var item_name = menuArray[x][3][0].itemName;
+      if(discard===item_name){
+        menuArray.splice(x,1);
+      };};
+
+    for(x=0; x<drink_Array.length; x++){
+        var item_name = drink_Array[x][3][0].itemName;
+        if(discard===item_name){
+          drink_Array.splice(x,1);
+        };};
+
+    for(x=0; x<lunch_Array.length; x++){
+          var item_name = lunch_Array[x][3][0].itemName;
+          if(discard===item_name){
+            lunch_Array.splice(x,1);
+          };};
+
+    for(x=0; x<snack_Array.length; x++){
+            var item_name = snack_Array[x][3][0].itemName;
+            if(discard===item_name){
+              snack_Array.splice(x,1);
+            };};
+            
+    $("#all_display").click();
+    $("#form38").val("");
+
+  });
+
 
 });
