@@ -16,6 +16,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/newSP.js"></script>
+
 
   <!--<link rel="stylesheet" href="styles.css">-->
   <title>User-Page</title>
@@ -35,13 +37,13 @@
         <div class="modal-c-tabs">
 
           <!-- Nav tabs -->
-          <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+          <ul class="nav nav-tabs md-tabs tabs-2 grey darken-1" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
+              <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab" id="login_account"><i class="fas fa-user mr-1"></i>
                 Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
+              <a class="nav-link " data-toggle="tab" href="#panel8" role="tab" id="create_account"><i class="fas fa-user-plus mr-1"></i>
                 Create an account</a>
             </li>
           </ul>
@@ -56,7 +58,7 @@
                 <div class="md-form form-sm mb-5" >
 
                     <i class="fas fa-user prefix"></i>
-                    <input type="text" name="username" placeholder="@username" class="form-control" id="user-name"class="form-control">
+                    <input type="text" name="username" placeholder="@username" class="form-control" id="sp-user-name"class="form-control">
 
 
 
@@ -65,18 +67,17 @@
 
                 <div class="md-form form-sm mb-4">
                   <i class="fas fa-lock prefix"></i>
-                  <input type="password" placeholder="Password" id="pwd1" class="form-control form-control-sm validate">
+                  <input type="password" placeholder="Password" id="sp-pwd" class="form-control form-control-sm validate">
 
                 </div>
                 <div class="text-center mt-2">
-                  <button class="btn btn-info">Log in <i class="fas fa-sign-in ml-1"></i></button>
+                  <button class="btn btn-info" id="login_validate">Log in <i class="fas fa-sign-in ml-1"></i></button>
                 </div>
               </div>
               <!--Footer-->
               <div class="modal-footer">
                 <div class="options text-center text-md-right mt-1">
-                  <p>Not a member? <a href="#create" class="blue-text"data-target = "#create">Sign Up</a></p>
-                  <p>Forgot <a href="#" class="blue-text">Password?</a></p>
+                  <p>Not a member? <a href="#create" class="blue-text"data-target = "#create" id="lower_signUP">Sign Up</a></p>
                 </div>
                 <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
               </div>
@@ -91,37 +92,25 @@
               <div  id ="create" class="modal-body" >
                 <div class="md-form form-sm mb-5" >
                    <i class="fas fa-user prefix"></i>
-                  <input type="text" name="Name" placeholder="Full Name" id= "full_name" class="form-control">
+                  <input type="text" name="Name" placeholder="Full Name" id= "sp-name" class="form-control">
 
                 </div>
 
                 <div class="md-form form-sm mb-5">
                   <i class="fas fa-user prefix"></i>
-                  <input type="text" name="username" placeholder="@username" id="username" class="form-control">
+                  <input type="text" name="username" placeholder="@username" id="sp-userName" class="form-control">
 
                 </div>
 
                 <div class="md-form form-sm mb-4">
                   <i class="fas fa-envelope prefix"></i>
-                  <input type="email" name="Email" placeholder="Email" id = "email" class="form-control">
-
-                </div>
-
-                <div class="md-form form-sm mb-4">
-                  <i class="fas fa-building prefix"></i>
-                  <input type="text" name="office-name" placeholder="Office Name" id ="office-name" class="form-control">
-
-                </div>
-
-                <div class="md-form form-sm mb-4">
-                  <i class="fas fa-building prefix"></i>
-                  <input type="number" name="floor" placeholder="Floor Number" id= "floor-number" class="form-control">
+                  <input type="email" name="Email" placeholder="Email" id = "sp-email" class="form-control">
 
                 </div>
 
                 <div class="md-form form-sm mb-4">
                   <i class="fas fa-lock prefix"></i>
-                  <input type="password" placeholder="Password" id="pwd" class="form-controlform-control-sm validate">
+                  <input type="password" placeholder="Password" id="sp-password" class="form-controlform-control-sm validate">
 
                 </div>
 
@@ -129,14 +118,14 @@
 
 
                 <div class="text-center form-sm mt-2">
-                  <button class="btn btn-info">Sign up <i class="fas fa-sign-in ml-1"></i></button>
+                  <button class="btn btn-info" id="sp_signUP">Sign up <i class="fas fa-sign-in ml-1"></i></button>
                 </div>
 
               </div>
               <!--Footer-->
               <div class="modal-footer">
                 <div class="options text-right">
-                  <p class="pt-1">Already have an account? <a href="#exist" class="blue-text" data-target = "#exist">Log In</a></p>
+                  <p class="pt-1">Already have an account? <a href="#exist" class="blue-text" data-target = "#exist" id="lower_signIN">Log In</a></p>
                 </div>
                 <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
               </div>
@@ -152,7 +141,7 @@
   <!--Modal: Login / Register Form-->
 
   <div class="text-center">
-    <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm"> E-Cafeteria LogIn/Register</a>
+    <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm" id="startSP_modal"> E-Cafeteria LogIn/Register</a>
   </div>
       </div>
           </div>
