@@ -1,0 +1,14 @@
+
+#actual_icon{
+  position: relative;
+}
+
+#notification{
+  position: absolute, top: 2px, right 2px
+}
+
+.carter {
+  position: absolute;
+  z-index: 100;
+
+}
