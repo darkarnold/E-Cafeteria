@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Card</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/css/mdb.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="menu.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="js/SP_Interface.js"></script>
+</head>
+<body>
+  <div class="bg-image"></div>
+  <div class="holder">
+    <section class='cards-items' id="cards-items">
+      <div class="container">
+        <div class="card-columns">
+          <div class="card" id="snacks">
+            <div class="card-body">
+              <i class="fas fa-hamburger fa-2x"></i>
+              <h4 class="card-title">Snacks</h4><br>
+              <a href="#" class="btn btn-outline-info" data-toggle="modal" data-target="#modalForm" id="snack_adder">Add</a><br><br>
+              <a href="#" class="btn btn-outline-info" data-toggle="modal" data-target="#modalForm_del_del" id="snack_remover">Remove</a>
+            </div>
+          </div>
+          <div class="card" id="meals">
+              <div class="card-body">
+                <i class="fas fa-utensils fa-2x"></i>
+                  <h4 class="card-title">Lunch</h4><br>
+                  <a href="#" class="btn btn-outline-info" data-toggle="modal" data-target="#modalForm" id="lunch_adder">Add</a><br><br>
+                  <a href="#" class="btn btn-outline-info" data-toggle="modal" data-target="#modalForm_del_del" id="lunch_remover">Remove</a>
+              </div>
+          </div>
+          <div class="card" id="drinks">
+              <div class="card-body">
+                <i class="fas fa-glass-martini-alt fa-2x"></i>
+                <h4 class="card-title">Drinks</h4><br>
+                  <a href="#" class="btn btn-outline-info" data-toggle="modal" data-target="#modalForm" id="drinks_adder">Add</a><br><br>
+                  <a href="#" class="btn btn-outline-info" data-toggle="modal" data-target="#modalForm_del_del" id="drinks_remover">Remove</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="modalform" id="modalform_add">
+      <div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Update your menu</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="update_closer">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-3">
+            <div class="md-form mb-5">
+              <input type="text" id="form34" class="form-control validate" placeholder="name of meal">
+            </div>
+
+            <div class="md-form mb-5">
+              <input type="email" id="form29" class="form-control validate" placeholder="price">
+            </div>
+
+            <div class="md-form mb-5">
+              <input type="text" id="form35" class="form-control validate" placeholder="Stock available (input a number)">
+            </div>
+
+            <div class="md-form">
+              <i class="fas fa-pencil prefix grey-text"></i>
+              <label data-error="wrong" data-success="right" for="form8">Food description</label>
+              <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
+            </div>
+
+          </div>
+          <div class="modal-footer d-flex justify-content-center" id="modal_end">
+            <button class="btn btn-unique" id="meal_save">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <section class="modalform" id="modalform_editor">
+      <div class="modal fade" id="modalform_edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold" id="editor_head">Edit an item</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="editor_close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-3">
+            <div class="md-form mb-5">
+              <input type="text" id="form50" class="form-control validate" placeholder="name of meal">
+            </div>
+
+            <div class="md-form mb-5">
+              <input type="email" id="form51" class="form-control validate" placeholder="price">
+            </div>
+
+            <div class="md-form mb-5">
+              <input type="text" id="form52" class="form-control validate" placeholder="Stock available (input a number)">
+            </div>
+
+            <div class="md-form">
+              <i class="fas fa-pencil prefix grey-text"></i>
+              <label data-error="wrong" data-success="right" for="form8">Food description</label>
+              <textarea type="text" id="form53" class="md-textarea form-control" rows="4"></textarea>
+            </div>
+
+          </div>
+          <div class="modal-footer d-flex justify-content-center" id="modal_edit_end">
+            <button class="btn btn-unique" id="edit_save">Save this edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <section class="modalform" id="modalform_del">
+      <div class="modal fade" id="modalForm_del_del" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Delete an item</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-3">
+            <div class="md-form mb-5">
+              <input type="text" id="form38" class="form-control validate" placeholder="name of item to delete">
+            </div>
+
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-unique" id="save_del">Delete<i class="fas fa-paper-plane-o ml-1"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+
+    <section>
+      <div class="container" id="navlist">
+        <ul class="nav nav-pills nav-fill">
+          <li class="nav-item">
+            <a class="nav-link active" href="#" id="all_display">All</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="snack_display">Snacks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="lunch_display">Lunch</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="drinks_display">Drinks</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="menulist" >
+      <div class="row" id="menulist"></div>
+      <div class="row">
+        <div class="col-md-6">
+
+        </div>
+        <div class="col-md-6">
+
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+
+        </div>
+        <div class="col-md-6">
+
+        </div>
+
+      </div>
+    </section>
+
+
+  </div>
+
+</body>
+</html>
